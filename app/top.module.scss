@@ -1,4 +1,4 @@
-@import '../public/globals.module';
+@import "../public/globals.module";
 
 .Top {
   display: flex;
@@ -7,8 +7,8 @@
   flex-direction: column;
   margin: 1.2rem;
   height: 75vh;
-
-  // PC版
+  
+  // ====================PC版==================== //
   &_Pc {
     .Top_Logo {
       margin-bottom: 2.5rem;
@@ -22,21 +22,42 @@
       text-align: left;
       font-size: 1.8rem;
     }
+    .Top_Button {
+      margin-top: 5rem;
+      padding: 0.5rem;
+      width: 100%;
+      background-color: rgb(0, 28, 81);
+      p {
+        font: bold 1.2rem/1.5rem "Noto Sans JP", sans-serif;
+      }
+    }
   }
-
-  // モバイル版
+  
+  // ====================モバイル版==================== //
   &_Mobile {
+    align-items: center;
+    justify-content: center;
     .Top_Logo {
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
       width: 250px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     h1 {
+      margin-bottom: 1.5rem;
       text-align: center;
       text-align: left;
       font-size: 1.1rem;
+    }
+    .Top_Button {
+      margin-top: 1.5rem;
+      padding: 0.5rem;
+      width: 100%;
+      background-color: rgb(0, 28, 81);
+      p {
+        font: bold 1.2rem/1.5rem "Noto Sans JP", sa ns-serif;
+      }
     }
   }
   
