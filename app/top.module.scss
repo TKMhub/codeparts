@@ -1,16 +1,37 @@
 @import '../public/globals.module';
 
 .Top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 1.2rem;
-    height: 75vh;
-    &_Contents{
-      &_Logo {
-        margin-bottom: 2.5rem;
-      }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1.2rem;
+  height: 75vh;
+
+  // PC版
+  &_Pc {
+    .Top_Logo {
+      margin-bottom: 2.5rem;
+      width: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      text-align: center;
+      text-align: left;
+      font-size: 1.8rem;
+    }
+  }
+
+  // モバイル版
+  &_Mobile {
+    .Top_Logo {
+      margin-bottom: 2.5rem;
+      width: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     h1 {
       text-align: center;
@@ -19,4 +40,4 @@
     }
   }
   
-  
+}

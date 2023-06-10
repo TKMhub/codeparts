@@ -1,11 +1,17 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import TopLogo from '../public/codeParts_white.svg';
-import styles from './top.module.scss';
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import TopLogo from "../public/codeParts_white.svg";
+import styles from "./top.module.scss";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
+
+  const variants = {
+    hidden: { opacity: 0, x: "-100vw" },
+    visible: { opacity: 1, x: "0" },
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -13,24 +19,31 @@ const Home = () => {
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
     <div className={styles.Top}>
-      <div className={isMobile ? styles.Top_Contents_Mobile : styles.Top_Contents}>
-        <div className={styles.Top_Contents_Logo}>
-          <Image src={TopLogo} alt="Logo" width={230} height={150} priority={true} />
+    <div className={`${isMobile ? styles.Top_Mobile : styles.Top_Pc}`}>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={variants}
+        transition={{ type: "spring", stiffness: 10, damping: 6 }}
+      >
+        <div className={styles.Top_Logo}>
+          <Image src={TopLogo} alt="Logo" priority={true} />
         </div>
         <h1>
           CodePartsでPGMを見つけて、
           <br />
           自分のサービスに取り入れよう。
         </h1>
+      </motion.div>
       </div>
     </div>
   );
