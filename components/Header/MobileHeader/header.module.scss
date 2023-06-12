@@ -24,7 +24,6 @@ $sidebar-z-index: 1000;
 
 .Link {
   display: block;
-  margin-bottom: $link-margin;
 }
 
 .Sidebar {
@@ -43,10 +42,15 @@ $sidebar-z-index: 1000;
 }
 
 .MenuItems {
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 500;
   a {
-    margin: $link-margin 0;
+    margin: 50px;
     text-decoration: none;
-    color: black;
+    color: #ffffff;
   }
 }
 
@@ -58,3 +62,7 @@ $sidebar-z-index: 1000;
   height: 100vh;
   z-index: $overlay-z-index;
 }
+
+// .Header_right_item_buttonSpace_button{
+//   background-color: #ffffff00 !important;
+// }

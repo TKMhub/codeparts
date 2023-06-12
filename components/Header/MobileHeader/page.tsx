@@ -52,10 +52,7 @@ const MobileHeader: React.FC = () => {
     >
       <div className={styles.Header_right}>
         <div className={styles.Header_right_item}>
-          <button
-            className={styles.Hamburger}
-            onClick={toggleMenuOpen}
-          >
+          <button className={styles.Hamburger} onClick={toggleMenuOpen}>
             <svg width="30" height="30" viewBox="0 0 23 23">
               <Path
                 animate={
@@ -86,7 +83,10 @@ const MobileHeader: React.FC = () => {
           <AnimatePresence>
             {isMenuOpen && (
               <>
-                <div className={styles.Overlay} onClick={() => setMenuOpen(false)} /> 
+                <div
+                  className={styles.Overlay}
+                  onClick={() => setMenuOpen(false)}
+                />
                 <motion.div
                   initial={{ x: "-100vw" }}
                   animate={{ x: 0 }}
@@ -95,21 +95,23 @@ const MobileHeader: React.FC = () => {
                   className={styles.Sidebar}
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <div className={styles.MenuItems}>{renderLinks()}</div>
-                  <Button
-                    className={styles.Header_right_item_buttonSpace_button}
-                    variant="contained"
-                    style={{ width: "80px", height: "40px" }}
-                  >
-                    Login
-                  </Button>
-                  <Button
-                    className={styles.Header_right_item_buttonSpace_button}
-                    variant="contained"
-                    style={{ width: "80px", height: "40px" }}
-                  >
-                    新規
-                  </Button>
+                  <div className={styles.MenuItems}>
+                    {renderLinks()}
+                    <Button
+                      className={styles.Header_right_item_buttonSpace_button}
+                      variant="contained"
+                      style={{ width: "100%", height: "40px",marginTop: "20px", display: "block" }}
+                    >
+                      Login
+                    </Button>
+                    <Button
+                      className={styles.Header_right_item_buttonSpace_button}
+                      variant="contained"
+                      style={{ width: "100%", height: "40px",marginTop: "20px", display: "block" }}
+                    >
+                      新規
+                    </Button>
+                  </div>
                 </motion.div>
               </>
             )}
