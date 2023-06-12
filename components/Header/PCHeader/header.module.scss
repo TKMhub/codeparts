@@ -1,0 +1,48 @@
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #161616;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 0.5px solid #cccccc84;
+  &_link {
+    display: flex;
+  }
+
+  &_WorkwizTop {
+    margin-left: 10rem;
+    cursor: pointer;
+  }
+
+  &_right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    &_item {
+      display: flex;
+      align-items: center;
+      &_link {
+        color: #ffffff;
+        margin-right: 50px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      &_buttonSpace {
+        margin-right: 20px !important;
+        &_button {
+          font-weight: 600 !important;
+          &:hover {
+            font-weight: 600 !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,48 +4,30 @@ import styles from "./header.module.scss";
 import Image from "next/image";
 import TopLogo from "public/codeParts_Black.svg";
 import { Button } from "@mui/material";
+import { useEffect, useState } from "react";
+import PCHeader from "./PCHeader/page";
+import MobileHeader from "./MobileHeader/page";
 
 const Header = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // 画面幅が768px未満：スマホ
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <div className={styles.Header}>
-          <Link href="/">
-            <Image src={TopLogo} style={{ width: "100px" }} alt="Logo" priority={true} />
-          </Link>
-          <div className={styles.Header_right}>
-            <div className={styles.Header_right_item}>
-              <Link href="/" className={styles.Header_right_item_link}>
-                TOP
-              </Link>
-              <Link href="/" className={styles.Header_right_item_link}>
-                Blog
-              </Link>
-              <Link href="/" className={styles.Header_right_item_link}>
-                Skills
-              </Link>
-              <Link href="/" className={styles.Header_right_item_link}>
-                Contact
-              </Link>
-              <Link href="/" className={styles.Header_right_item_buttonSpace}>
-                <Button
-                  className={styles.Header_right_item_buttonSpace_button}
-                  variant="contained"
-                  style={{ width: "80px", height: "40px" }}
-                >
-                  Login
-                </Button>
-              </Link>
-              <Link href="/" className={styles.Header_right_item_buttonSpace}>
-                <Button
-                  className={styles.Header_right_item_buttonSpace_button}
-                  variant="contained"
-                  style={{ width: "80px", height: "40px" }}
-                >
-                  新規
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
+    <div>
+      {isMobile ? <MobileHeader /> : <PCHeader />}
+    </div>
   )
 }
 
