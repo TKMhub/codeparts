@@ -1,88 +1,60 @@
-// .Header{
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 60px;
-//     background-color: #161616;
-//     z-index: 100;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 0 20px;
-//     border-bottom: 0.5px solid #cccccc84;
-//       &_link{
-//           display: flex;
-//       }
-  
-//       &_WorkwizTop {
-//           margin-left: 10rem;
-//           cursor: pointer;
-//       }
-  
-//       &_right {
-//           display: flex;
-//           align-items: center;
-//           margin-left: auto;
-//           margin-right: 1rem;
-  
-//           &_item {
-//               display: flex;
-//               align-items: center;
-//               margin-right: 10rem;
-//               &_link {
-//                   color: #ffffff;
-//                   margin-right: 50px;
-//                   text-decoration: none;
-//                   font-size: 18px;
-//                   font-weight: 500;
-//               }
-//               &_buttonSpace {
-//                   margin-right: 20px !important;
-//                   &_button{
-//                       background-color: #fff !important;
-//                       border: 2px solid #027FFE !important;
-//                       color: #027FFE !important;
-//                       font-weight: 600 !important;
-//                       &:hover {
-//                           background-color: #027FFE !important;
-//                           color: #fff !important;
-//                           font-weight: 600 !important;
-//                       }
-//                   }
-//               }
-//           }
-//       }
-//   }
+$header-padding: 10px;
+$sidebar-width: 66.66vw;
+$sidebar-background: #bababad5;
+$link-margin: 1em;
+$overlay-z-index: 999;
+$sidebar-z-index: 1000;
 
-  // SCSS
 .Header {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: -1; // 適切な値に設定してください
-    // ...他のスタイル
-  }
-  
-  .Header_right {
-    position: relative;
-    // ...他のスタイル
-  }
-  
-  .Header_right_item {
+  position: relative;
+
+  &_right {
     position: absolute;
-    top: 0;
-    right: 0;
-    // ...他のスタイル
+    top: $header-padding;
+    right: $header-padding;
   }
-  
-  .Sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 66.67vw;
-    height: 100vh;
-    background: #ffffff;
-    // ...他のスタイル
+}
+
+.Hamburger {
+  padding: $header-padding;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.Link {
+  display: block;
+  margin-bottom: $link-margin;
+}
+
+.Sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: $sidebar-width;
+  background-color: $sidebar-background;
+  z-index: $sidebar-z-index;
+  padding: $header-padding;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.MenuItems {
+  a {
+    margin: $link-margin 0;
+    text-decoration: none;
+    color: black;
   }
-  
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: $overlay-z-index;
+}
