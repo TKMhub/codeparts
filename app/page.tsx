@@ -44,7 +44,7 @@ const Home = () => {
             <h1>
               CodePartsでPGMを見つけて、
               <br />
-              自分のサービスに取り入れよう。
+              自分のサービスに取り入れよう！
             </h1>
             <Link href="/">
               <Button className={styles.Top_Button} variant="outlined">
