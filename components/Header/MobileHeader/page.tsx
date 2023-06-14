@@ -95,30 +95,34 @@ const MobileHeader: React.FC = () => {
                 >
                   <div className={styles.MenuItems}>
                     {renderLinks()}
-                    <Button
-                      className={styles.Header_right_item_buttonSpace_button}
-                      variant="contained"
-                      style={{
-                        width: "100%",
-                        height: "40px",
-                        marginTop: "20px",
-                        display: "block",
-                      }}
-                    >
-                      Login
-                    </Button>
-                    <Button
-                      className={styles.Header_right_item_buttonSpace_button}
-                      variant="contained"
-                      style={{
-                        width: "100%",
-                        height: "40px",
-                        marginTop: "20px",
-                        display: "block",
-                      }}
-                    >
-                      新規
-                    </Button>
+                    <Link href="/signup">
+                      <Button
+                        className={styles.Header_right_item_buttonSpace_button}
+                        variant="contained"
+                        style={{
+                          width: "100%",
+                          height: "40px",
+                          marginTop: "20px",
+                          display: "block",
+                        }}
+                      >
+                        Login
+                      </Button>
+                    </Link>
+                    <Link href="/signup">
+                      <Button
+                        className={styles.Header_right_item_buttonSpace_button}
+                        variant="contained"
+                        style={{
+                          width: "100%",
+                          height: "40px",
+                          marginTop: "20px",
+                          display: "block",
+                        }}
+                      >
+                        新規
+                      </Button>
+                    </Link>
                   </div>
                 </motion.div>
               </>

@@ -40,7 +40,7 @@ const PCHeader = () => {
               Login
             </Button>
           </Link>
-          <Link href="/" className={styles.Header_right_item_buttonSpace}>
+          <Link href="/signup" className={styles.Header_right_item_buttonSpace}>
             <Button
               className={styles.Header_right_item_buttonSpace_button}
               variant="contained"
