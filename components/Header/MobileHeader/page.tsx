@@ -22,10 +22,10 @@ const humbargarTransition = { duration: 0.3 };
 const sidebarTransition = { duration: 0.7 };
 
 const links = [
-  { label: "TOP", href: "/" },
-  { label: "Blog", href: "/" },
-  { label: "Skills", href: "/" },
-  { label: "Contact", href: "/" },
+  { label: "-  T O P -", href: "/" },
+  { label: "- B l o g -", href: "/" },
+  { label: "- S k i l l s -", href: "/" },
+  { label: "- C o n t a c t -", href: "/" },
 ];
 
 const renderLinks = () =>
