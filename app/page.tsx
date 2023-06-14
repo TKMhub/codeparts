@@ -29,31 +29,29 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={styles.Top}>
-      <div className={`${isMobile ? styles.Top_Mobile : styles.Top_Pc}`}>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={variants}
-          transition={{ type: "spring", stiffness: 10, damping: 6 }}
-        >
-          <div className={`${isMobile ? styles.Top_Mobile : styles.Top_Pc}`}>
-            <div className={styles.Top_Logo}>
-              <Image src={TopLogo} alt="Logo" priority={true} />
-            </div>
-            <h1>
-              CodePartsでPGMを見つけて、
-              <br />
-              自分のサービスに取り入れよう。
-            </h1>
-            <Link href="/">
-              <Button className={styles.Top_Button} variant="outlined">
-                <p>Get Started</p>
-              </Button>
-            </Link>
+    <div className={`${isMobile ? styles.Top_Mobile : styles.Top_Pc}`}>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={variants}
+        transition={{ type: "spring", stiffness: 10, damping: 6 }}
+      >
+        <div className={styles.Top_Contents}>
+          <div className={styles.Top_Logo}>
+            <Image src={TopLogo} alt="Logo" priority={true} />
           </div>
-        </motion.div>
-      </div>
+          <h1>
+            CodePartsでPGMを見つけて、
+            <br />
+            自分のサービスに取り入れよう。
+          </h1>
+          <Link href="/">
+            <Button className={styles.Top_Button} variant="outlined">
+              <p>Get Started</p>
+            </Button>
+          </Link>
+        </div>
+      </motion.div>
     </div>
   );
 };

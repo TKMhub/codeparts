@@ -1,21 +1,19 @@
 @import "../public/globals.module";
 
-.Top {
+// ====================PC版==================== //
+.Top_Pc {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 1.2rem;
-  height: 90vh;
-  
-  // ====================PC版==================== //
-  &_Pc {
+  // margin: 1.2rem;
+  height: 100vh;
+
+  .Top_Contents {
     .Top_Logo {
       margin-bottom: 2.5rem;
       width: 400px;
-      display: flex;
       align-items: center;
-      justify-content: center;
     }
     h1 {
       text-align: center;
@@ -32,9 +30,17 @@
       }
     }
   }
-  
-  // ====================モバイル版==================== //
-  &_Mobile {
+}
+
+// ====================モバイル版==================== //
+.Top_Mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+
+  .Top_Contents {
     align-items: center;
     justify-content: center;
     .Top_Logo {
@@ -60,5 +66,4 @@
       }
     }
   }
-  
 }

@@ -1,6 +1,6 @@
 $header-padding: 10px;
 $sidebar-width: 70vw;
-$sidebar-background: #545454de;
+$sidebar-background: #6e6e6ede;
 $link-margin: 1em;
 $overlay-z-index: 999;
 $sidebar-z-index: 1000;
@@ -35,13 +35,12 @@ $sidebar-z-index: 1000;
   background-color: $sidebar-background;
   z-index: $sidebar-z-index;
   padding: $header-padding;
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
 }
 
 .MenuItems {
+  margin-top: 110px;
   text-align: center;
   font-weight: bold;
   color: #ffffff;
