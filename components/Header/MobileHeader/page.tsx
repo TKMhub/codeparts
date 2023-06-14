@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./header.module.scss";
-import Image from "next/image";
-import TopLogo from "public/codeParts_Black.svg";
 import { Button } from "@mui/material";
 import { motion, AnimatePresence, SVGMotionProps } from "framer-motion";
 
