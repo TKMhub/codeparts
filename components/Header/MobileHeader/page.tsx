@@ -55,7 +55,7 @@ const MobileHeader: React.FC = () => {
               <Path
                 animate={
                   isMenuOpen
-                    ? { d: "M 3 16.5 L 20 2.5", opacity: 1 }
+                    ? { d: "M 2 2 L 20 20", opacity: 1 }
                     : { d: "M 3 2.5 L20 2.5", opacity: 1 }
                 }
                 initial={false}
@@ -70,7 +70,7 @@ const MobileHeader: React.FC = () => {
               <Path
                 animate={
                   isMenuOpen
-                    ? { d: "M 3 2.5 L 20 16.346", opacity: 1 }
+                    ? { d: "M 2 20 L 20 2", opacity: 1 }
                     : { d: "M 3 16.346 L 20 16.346", opacity: 1 }
                 }
                 initial={false}
