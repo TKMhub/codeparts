@@ -100,14 +100,24 @@ const MobileHeader: React.FC = () => {
                     <Button
                       className={styles.Header_right_item_buttonSpace_button}
                       variant="contained"
-                      style={{ width: "100%", height: "40px",marginTop: "20px", display: "block" }}
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        marginTop: "20px",
+                        display: "block",
+                      }}
                     >
                       Login
                     </Button>
                     <Button
                       className={styles.Header_right_item_buttonSpace_button}
                       variant="contained"
-                      style={{ width: "100%", height: "40px",marginTop: "20px", display: "block" }}
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        marginTop: "20px",
+                        display: "block",
+                      }}
                     >
                       新規
                     </Button>

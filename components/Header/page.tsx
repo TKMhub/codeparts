@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import PCHeader from "./PCHeader/page";
 import MobileHeader from "./MobileHeader/page";
 
@@ -14,19 +14,15 @@ const Header: React.FC = () => {
       setIsMobile(checkMobile());
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   if (isMobile === null) {
     return null;
   }
 
-  return (
-    <div>
-      {isMobile ? <MobileHeader /> : <PCHeader />}
-    </div>
-  )
-}
+  return <div>{isMobile ? <MobileHeader /> : <PCHeader />}</div>;
+};
 
 export default Header;
