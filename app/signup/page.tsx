@@ -1,9 +1,8 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react"; // useRefとuseEffectを追加
+import React, { useState, useRef, useEffect } from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import Link from "next/link";
-import styles from "./signup.module.scss";
 
 const SignupContainer = styled(Box)`
   display: flex;
@@ -23,8 +22,14 @@ const FormBox = styled(Box)`
   max-width: 420px;
   padding: 2rem;
   border-radius: 10px;
-  background-color: #383838;
-  margin-bottom: 2rem; // 下マージンを追加
+  background-color: rgba(56, 56, 56, 0.7);
+  margin-bottom: 2rem;
+  backdrop-filter: blur(50px);
+`;
+
+const StyledTextField = styled(TextField)`
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 const Signup = () => {
@@ -70,41 +75,32 @@ const Signup = () => {
           ユーザーを新規登録してください。
         </Typography>
         <form onSubmit={handleSubmit}>
-          <TextField
+          <StyledTextField
             label="Email"
             type="email"
             value={email}
             onChange={handleEmailChange}
             required
             fullWidth
-            className={styles.imputForm}
             inputProps={{ ref: emailRef }}
           />
-          <TextField
+          <StyledTextField
             label="Password"
             type="password"
             value={password}
             onChange={handlePasswordChange}
             required
             fullWidth
-            className={styles.imputForm}
           />
-          <TextField
+          <StyledTextField
             label="Confirm Password"
             type="password"
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
             required
             fullWidth
-            className={styles.imputForm}
           />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-            className={styles.imputForm}
-          >
+          <Button type="submit" variant="contained" color="primary" fullWidth>
             Signup
           </Button>
         </form>

@@ -23,7 +23,7 @@ const PCHeader = () => {
             TOP
           </Link>
           <Link href="/" className={styles.Header_right_item_link}>
-            Blog
+            Bot
           </Link>
           <Link href="/" className={styles.Header_right_item_link}>
             Skills
@@ -31,7 +31,7 @@ const PCHeader = () => {
           <Link href="/" className={styles.Header_right_item_link}>
             Contact
           </Link>
-          <Link href="/" className={styles.Header_right_item_buttonSpace}>
+          <Link href="/login" className={styles.Header_right_item_buttonSpace}>
             <Button
               className={styles.Header_right_item_buttonSpace_button}
               variant="contained"
