@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react"; // useRefとuseEffec
 import { Box, Button, TextField, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import Link from "next/link";
+import styles from "./signup.module.scss";
 
 const SignupContainer = styled(Box)`
   display: flex;
@@ -76,7 +77,7 @@ const Signup = () => {
             onChange={handleEmailChange}
             required
             fullWidth
-            margin="normal"
+            className={styles.imputForm}
             inputProps={{ ref: emailRef }}
           />
           <TextField
@@ -86,7 +87,7 @@ const Signup = () => {
             onChange={handlePasswordChange}
             required
             fullWidth
-            margin="normal"
+            className={styles.imputForm}
           />
           <TextField
             label="Confirm Password"
@@ -95,9 +96,9 @@ const Signup = () => {
             onChange={handleConfirmPasswordChange}
             required
             fullWidth
-            margin="normal"
+            className={styles.imputForm}
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth>
+          <Button type="submit" variant="contained" color="primary" fullWidth className={styles.imputForm}>
             Signup
           </Button>
         </form>
