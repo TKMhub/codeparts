@@ -20,7 +20,7 @@ const FormBox = styled(Box)`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 500px;
+  max-width: 420px;
   padding: 2rem;
   border-radius: 10px;
   background-color: #383838;
@@ -98,7 +98,13 @@ const Signup = () => {
             fullWidth
             className={styles.imputForm}
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth className={styles.imputForm}>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            className={styles.imputForm}
+          >
             Signup
           </Button>
         </form>
