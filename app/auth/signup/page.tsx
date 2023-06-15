@@ -4,7 +4,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import Link from "next/link";
 
-const LoginContainer = styled(Box)`
+const SignupContainer = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +16,7 @@ const LoginContainer = styled(Box)`
 
   @media (max-width: 600px) {
     padding: 2rem;
+    height: 85vh;
   }
 `;
 
@@ -40,9 +41,10 @@ const StyledTextField = styled(TextField)`
   margin-bottom: 20px;
 `;
 
-const Login = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const emailRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -57,19 +59,29 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
+  const handleConfirmPasswordChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setConfirmPassword(e.target.value);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
 
-    // ログイン録処理
+    // 新規ユーザー登録処理
     console.log("Email: ", email);
     console.log("Password: ", password);
   };
 
   return (
-    <LoginContainer>
+    <SignupContainer>
       <FormBox>
-        <Typography variant="h6" align="center" gutterBottom>
-          ユーザーログインをしてください。
+        <Typography variant="subtitle1" align="center" gutterBottom>
+          ユーザーを新規登録してください。
         </Typography>
         <form onSubmit={handleSubmit}>
           <StyledTextField
@@ -79,7 +91,10 @@ const Login = () => {
             onChange={handleEmailChange}
             required
             fullWidth
-            inputProps={{ ref: emailRef }}
+            inputProps={{
+              ref: emailRef,
+              style: { color: "#ffffff" },
+            }}
           />
           <StyledTextField
             label="Password"
@@ -88,23 +103,33 @@ const Login = () => {
             onChange={handlePasswordChange}
             required
             fullWidth
+            inputProps={{
+              style: { color: "#ffffff" },
+            }}
+          />
+          <StyledTextField
+            label="Confirm Password"
+            type="password"
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+            required
+            fullWidth
+            inputProps={{
+              style: { color: "#ffffff" },
+            }}
           />
           <Button type="submit" variant="contained" color="primary" fullWidth>
-            Login
+            Signup
           </Button>
         </form>
       </FormBox>
       <Box mt={2}>
-        <Typography variant="body2" align="center">
-          <Link href="/login">新規登録はこちら</Link>
-        </Typography>
-        <br />
-        <Typography variant="body2" align="center">
-          <Link href="/login">パスワードをお忘れですか？</Link>
+        <Typography variant="body2">
+          <Link href="/auth/login">ログインはこちら</Link>
         </Typography>
       </Box>
-    </LoginContainer>
+    </SignupContainer>
   );
 };
 
-export default Login;
+export default Signup;

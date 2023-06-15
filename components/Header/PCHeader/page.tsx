@@ -31,7 +31,10 @@ const PCHeader = () => {
           <Link href="/" className={styles.Header_right_item_link}>
             Contact
           </Link>
-          <Link href="/login" className={styles.Header_right_item_buttonSpace}>
+          <Link
+            href="/auth/login"
+            className={styles.Header_right_item_buttonSpace}
+          >
             <Button
               className={styles.Header_right_item_buttonSpace_button}
               variant="contained"
@@ -40,7 +43,10 @@ const PCHeader = () => {
               Login
             </Button>
           </Link>
-          <Link href="/signup" className={styles.Header_right_item_buttonSpace}>
+          <Link
+            href="/auth/signup"
+            className={styles.Header_right_item_buttonSpace}
+          >
             <Button
               className={styles.Header_right_item_buttonSpace_button}
               variant="contained"

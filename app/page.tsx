@@ -45,7 +45,7 @@ const Home = () => {
             <br />
             自分のサービスに取り入れよう。
           </h1>
-          <Link href="/signup">
+          <Link href="/auth/signup">
             <Button className={styles.Top_Button} variant="outlined">
               <p>Get Started</p>
             </Button>

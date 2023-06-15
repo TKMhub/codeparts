@@ -95,7 +95,7 @@ const MobileHeader: React.FC = () => {
                 >
                   <div className={styles.MenuItems}>
                     {renderLinks()}
-                    <Link href="/login">
+                    <Link href="/auth/login">
                       <Button
                         className={styles.Header_right_item_buttonSpace_button}
                         variant="contained"
@@ -109,7 +109,7 @@ const MobileHeader: React.FC = () => {
                         Login
                       </Button>
                     </Link>
-                    <Link href="/signup">
+                    <Link href="/auth/signup">
                       <Button
                         className={styles.Header_right_item_buttonSpace_button}
                         variant="contained"

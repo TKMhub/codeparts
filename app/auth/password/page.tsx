@@ -4,7 +4,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import Link from "next/link";
 
-const SignupContainer = styled(Box)`
+const PasswordContainer = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +13,10 @@ const SignupContainer = styled(Box)`
   padding: 10rem;
   color: #1876d2;
   box-sizing: border-box;
+  @media (max-width: 600px) {
+    padding: 2rem;
+    height: 85vh;
+  }
 `;
 
 const FormBox = styled(Box)`
@@ -25,17 +29,21 @@ const FormBox = styled(Box)`
   background-color: rgba(56, 56, 56, 0.7);
   margin-bottom: 2rem;
   backdrop-filter: blur(50px);
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
 `;
 
 const StyledTextField = styled(TextField)`
   margin-top: 20px;
   margin-bottom: 20px;
+  color: #ffffff !important;
 `;
 
-const Signup = () => {
+const Password = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const emailRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -50,29 +58,23 @@ const Signup = () => {
     setPassword(e.target.value);
   };
 
-  const handleConfirmPasswordChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setConfirmPassword(e.target.value);
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
 
-    // 新規ユーザー登録処理
+    // ログイン録処理
     console.log("Email: ", email);
     console.log("Password: ", password);
   };
 
   return (
-    <SignupContainer>
+    <PasswordContainer>
       <FormBox>
-        <Typography variant="h6" align="center" gutterBottom>
-          ユーザーを新規登録してください。
+        <Typography variant="subtitle2" align="center" gutterBottom>
+          ※ 現在、こちらの機能は利用できません。
+        </Typography>
+        <br />
+        <Typography variant="subtitle1" align="center" gutterBottom>
+          パスワード変更メールを送信します。
         </Typography>
         <form onSubmit={handleSubmit}>
           <StyledTextField
@@ -82,36 +84,27 @@ const Signup = () => {
             onChange={handleEmailChange}
             required
             fullWidth
-            inputProps={{ ref: emailRef }}
-          />
-          <StyledTextField
-            label="Password"
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-            fullWidth
-          />
-          <StyledTextField
-            label="Confirm Password"
-            type="password"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-            required
-            fullWidth
+            inputProps={{
+              ref: emailRef,
+              style: { color: "#ffffff" },
+            }}
           />
           <Button type="submit" variant="contained" color="primary" fullWidth>
-            Signup
+            Password
           </Button>
         </form>
       </FormBox>
       <Box mt={2}>
-        <Typography variant="body2">
-          <Link href="/login">ログインはこちら</Link>
+        <Typography variant="body2" align="center">
+          <Link href="/auth/signup">新規登録はこちら</Link>
+        </Typography>
+        <br />
+        <Typography variant="body2" align="center">
+          <Link href="/auth/login">ログインはこちら</Link>
         </Typography>
       </Box>
-    </SignupContainer>
+    </PasswordContainer>
   );
 };
 
-export default Signup;
+export default Password;
