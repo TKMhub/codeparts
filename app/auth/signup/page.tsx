@@ -14,7 +14,7 @@ const SignupContainer = styled(Box)`
   color: #1876d2;
   box-sizing: border-box;
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     padding: 2rem;
     height: 85vh;
   }
@@ -31,7 +31,7 @@ const FormBox = styled(Box)`
   margin-bottom: 2rem;
   backdrop-filter: blur(50px);
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     padding: 1rem;
   }
 `;
