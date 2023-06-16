@@ -43,6 +43,10 @@ const MobileHeader: React.FC = () => {
     setMenuOpen(!isMenuOpen);
   };
 
+  const closeSidebar = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <div
       className={styles.Header}
@@ -91,7 +95,7 @@ const MobileHeader: React.FC = () => {
                   exit={{ x: "-100vw" }}
                   transition={sidebarTransition}
                   className={styles.Sidebar}
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={closeSidebar}
                 >
                   <div className={styles.MenuItems}>
                     {renderLinks()}
