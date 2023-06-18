@@ -22,7 +22,7 @@ const PCHeader = () => {
           <Link href="/" className={styles.Header_right_item_link}>
             TOP
           </Link>
-          <Link href="/" className={styles.Header_right_item_link}>
+          <Link href="/bot" className={styles.Header_right_item_link}>
             Bot
           </Link>
           <Link href="/" className={styles.Header_right_item_link}>

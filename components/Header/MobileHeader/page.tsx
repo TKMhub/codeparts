@@ -23,7 +23,7 @@ const sidebarTransition = { duration: 0.7 };
 
 const links = [
   { label: "-  T o p -", href: "/" },
-  { label: "- B o t -", href: "/" },
+  { label: "- B o t -", href: "/bot" },
   { label: "- S k i l l s -", href: "/" },
   { label: "- C o n t a c t -", href: "/" },
 ];
