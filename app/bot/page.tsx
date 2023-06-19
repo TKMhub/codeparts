@@ -1,59 +1,59 @@
 "use client";
-import React, { SyntheticEvent, useState } from "react";
-import {
-  Configuration,
-  CreateCompletionRequest,
-  CreateCompletionResponse,
-  OpenAIApi,
-} from "openai";
+import React, {
+  useState,
+  SyntheticEvent,
+  ChangeEvent,
+  FunctionComponent,
+} from "react";
 import axios from "axios";
 
-const box: React.FC = () => {
-  const configuration = new Configuration({
-    apiKey: process.env.NEXT_PUBLIC_OPENAPI_KEY,
-  });
+interface Message {
+  text: string;
+  isBot: boolean;
+}
 
-  interface CompletionRequest {
-    model: string;
-    prompt: string;
-    max_tokens: number;
-  }
-
-  interface CompletionResponse {
-    id: string;
-    object: string;
-    created: number;
-    model: string;
-    choices: Array<{ text: string }>;
-  }
+const box: FunctionComponent = () => {
+  const [messages, setMessages] = useState<Array<Message>>([]);
+  const [message, setMessage] = useState<string>("");
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    const prompt = "こんにちは";
+    // Update the messages array with the user's message
+    setMessages([...messages, { text: message, isBot: false }]);
 
-    const data: CompletionRequest = {
-      model: "gpt-3.5-turbo",
-      prompt: prompt,
-      max_tokens: 60,
-    };
-
-    try {
-      const response = await axios.post<CompletionResponse>(
-        "https://api.openai.com/v1/engines/davinci/completions",
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${OPENAI_API_KEY}`,
-            "Content-Type": "application/json",
+    // Send the user's message to the OpenAI API
+    const response = await axios.post(
+      "https://api.openai.com/v1/chat/completions",
+      {
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "system",
+            content: "You are a helpful assistant.",
           },
-        }
-      );
+          {
+            role: "user",
+            content: message,
+          },
+        ],
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_OPENAPI_KEY}`,
+        },
+      }
+    );
 
-      console.log(response.data);
-    } catch (error) {
-      console.error("Failed to fetch the data", error);
-    }
+    // Update the messages array with the bot's response
+    setMessages([
+      ...messages,
+      { text: response.data.choices[0].message.content, isBot: true },
+    ]);
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setMessage(e.target.value);
   };
 
   return (
@@ -67,20 +67,30 @@ const box: React.FC = () => {
             <span className="text-center block font-medium text-2xl border-b-2 border-indigo-400 pb-4 mb-3">
               QA bot
             </span>
-            <div className="flex justify-end mb-2">
-              <div className="bg-indigo-400 text-white p-4 rounded-md">
-                ユーザーの質問
+            {messages.map((message, index) => (
+              <div
+                className={`flex justify-${
+                  message.isBot ? "start" : "end"
+                } mb-2`}
+                key={index}
+              >
+                <div
+                  className={`bg-${
+                    message.isBot ? "gray-400" : "indigo-400"
+                  } text-white p-4 rounded-md`}
+                >
+                  {message.text}
+                </div>
               </div>
-            </div>
-            <div className="flex justify-start mb-2">
-              <div className="bg-gray-400 text-white p-4 rounded-md">回答</div>
-            </div>
+            ))}
           </div>
           <form className="w-full" onSubmit={(e) => handleSubmit(e)}>
             <div className="flex items-center p-4 bg-gray-100 rounded-b-lg w-full">
               <input
                 type="text"
                 className="flex-1 border-2 py-2 px-4 text-black focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded-lg"
+                value={message}
+                onChange={handleChange}
               />
               <button
                 type="submit"
