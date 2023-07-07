@@ -16,7 +16,7 @@ const SignupContainer = styled(Box)`
 
   @media (max-width: 768px) {
     padding: 2rem;
-    height: 85vh;
+    height: 95vh;
   }
 `;
 

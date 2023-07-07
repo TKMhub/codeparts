@@ -15,7 +15,7 @@ const LoginContainer = styled(Box)`
   box-sizing: border-box;
   @media (max-width: 768px) {
     padding: 2rem;
-    height: 85vh;
+    height: 95vh;
   }
 `;
 
