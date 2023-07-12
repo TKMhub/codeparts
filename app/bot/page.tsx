@@ -4,6 +4,7 @@ import React, {
   SyntheticEvent,
   ChangeEvent,
   FunctionComponent,
+  useEffect,
 } from "react";
 import axios from "axios";
 
@@ -15,6 +16,7 @@ interface Message {
 const box: FunctionComponent = () => {
   const [messages, setMessages] = useState<Array<Message>>([]);
   const [message, setMessage] = useState<string>("");
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -52,21 +54,37 @@ const box: FunctionComponent = () => {
     ]);
   };
 
+  useEffect(() => {
+    // const handleResize = () => {
+    //   setIsMobile(window.innerWidth < 768); // 画面幅が768px未満：スマホ
+    // };
+    // handleResize();
+    // window.addEventListener("resize", handleResize);
+    // return () => {
+    //   window.removeEventListener("resize", handleResize);
+    // };
+  }, []);
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
   };
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen">
-        <div className="max-w-lg w-full">
+      <div className="flex flex-col items-center justify-center h-4/5">
+        <div className="max-w-lg w-full mt-16">
           <div
-            style={{ height: "650px" }}
-            className="bg-black w-full p-4 h-96 overflow-scroll rounded-lg"
+            style={{ height: "500px" }}
+            className="w-full p-4 h-96 overflow-scroll rounded-lg"
           >
             <span className="text-center block font-medium text-2xl border-b-2 border-indigo-400 pb-4 mb-3">
               QA bot
+              <br />
+              <p className="text-center text-base block font-medium  mt-3">
+                CodePartsに関しての質問を承ります。
+              </p>
             </span>
+            <p></p>
             {messages.map((message, index) => (
               <div
                 className={`flex justify-${

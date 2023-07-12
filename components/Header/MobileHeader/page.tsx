@@ -19,7 +19,7 @@ const Path: React.FC<PathProps> = (props) => (
 );
 
 const humbargarTransition = { duration: 0.3 };
-const sidebarTransition = { duration: 0.7 };
+const sidebarTransition = { duration: 0.3 };
 
 const links = [
   { label: "-  T o p -", href: "/" },
